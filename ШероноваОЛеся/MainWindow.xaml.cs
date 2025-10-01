@@ -29,6 +29,10 @@ namespace ШероноваОЛеся
         {
 
         }
+        private void btnRegistration_Click(object sender, RoutedEventArgs e)
+        {
+           
+        }
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
             // Ваш код для обработки события TextChanged
@@ -36,7 +40,19 @@ namespace ШероноваОЛеся
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
+            // Создаем экземпляр окна регистрации
+            Registration registrationWindow = new Registration();
 
+            // Показываем окно регистрации
+            registrationWindow.Show();
+
+            // Опционально: закрыть текущее окно (MainWindow) после открытия окна регистрации
+            this.Close();
+        }
+
+        public static implicit operator MainWindow(Registration v)
+        {
+            throw new NotImplementedException();
         }
     }
 }

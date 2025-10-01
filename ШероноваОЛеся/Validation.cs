@@ -10,41 +10,56 @@ namespace ШероноваОЛеся
 {
     internal class Validation
     {
-        // Валидация email
-        // Ссылка: 2
-        public static bool ValidateEmail(string email)
+        // ... (другие методы) ...
+
+        public static bool IsValidEmail(string email)
         {
-            // Паттерн для проверки email (ваш более корректный вариант)
-            // Соответствует формату: что-то@что-то.что-то
-            string pattern = @"^[^@\s]+@[^@\s]+\.[^@\s]+$"; // Добавлен ^ и $ для начала и конца строки
-            return Regex.IsMatch(email, pattern);
+            if (string.IsNullOrEmpty(email)) return false;
+
+            // Проверка по паттерну "*@*.*"
+            int atIndex = email.IndexOf('@');
+            int dotIndex = email.LastIndexOf('.');
+
+            if (atIndex <= 0 || dotIndex <= atIndex + 1 || dotIndex == email.Length - 1)
+            {
+                return false;
+            }
+
+            return true;
         }
 
-        // Валидация пароля
-        // Ссылка: 2
-        public static bool ValidatePassword(string password)
+        public static bool IsValidPassword(string password)
         {
-            // Пароль должен быть не пустым и иметь длину не менее 6 символов
             return !string.IsNullOrEmpty(password) && password.Length >= 6;
         }
 
-        // Валидация имени
-        // Ссылка: 1
-        public static bool ValidateName(string name)
+        public static bool IsValidName(string name)
         {
-            // Имя должно быть не пустым и содержать не менее 3 знаков
             return !string.IsNullOrEmpty(name) && name.Length >= 3;
         }
 
-        // Метод для отображения сообщения об ошибке
-        // Ссылка: 5
-        public static void ShowError(TextBox textBox, string errorMessage)
+        // Метод для валидации всех полей сразу
+        public static bool ValidateAllFields(string email, string password, string name, out string errorMessage)
         {
-            // Важно: проверка на null, чтобы избежать ошибок, если textBox еще не инициализирован
-            if (textBox != null)
+            errorMessage = string.Empty;
+
+            if (!IsValidEmail(email))
             {
-                textBox.Text = errorMessage;
+                errorMessage = "Некорректный формат email (должен содержать '@' и '.').";
+                return false;
             }
+            if (!IsValidPassword(password))
+            {
+                errorMessage = "Пароль должен содержать не менее 6 символов.";
+                return false;
+            }
+            if (!IsValidName(name))
+            {
+                errorMessage = "Имя должно содержать не менее 3 символов.";
+                return false;
+            }
+
+            return true; // Все поля валидны
         }
     }
 }

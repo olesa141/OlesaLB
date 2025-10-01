@@ -7,7 +7,13 @@
         mc:Ignorable="d"
         Title="Registration" Height="600" Width="800">
     <Grid>
-        <Button Content ="Зарегестрироваться" HorizontalAlignment="Left" Margin="398,438,0,0" VerticalAlignment="Top" Width="336" Height="50" Background="#de4949" FontSize="20" Click="Button_Click">
+
+
+
+
+        <Button Content ="Зарегестрироваться" HorizontalAlignment="Left" Margin="398,438,0,0" VerticalAlignment="Top" Width="336" Height="50" Background="#de4949" FontSize="20" Click="btnRegistration_Click">
+           
+
 
             <Button.Resources>
                 <Style TargetType="{x:Type Border}">
@@ -35,10 +41,10 @@
         </Label>
         <Label Content="Имя пользователя" HorizontalAlignment="Left" Margin="400,92,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.537,2.151" FontSize="20"/>
         <Label Content="Ваша почта" HorizontalAlignment="Left" Margin="400,168,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.537,2.151" FontSize="20"/>
-        <TextBox x:Name="Имя" HorizontalAlignment="Left" Margin="400,129,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="331" Height="39" LostFocus="NameValidation"/>
-        <TextBox x:Name="Почта" HorizontalAlignment="Left" Margin="400,210,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="332" Height="39" LostFocus="NameValidation"/>
+        <TextBox x:Name="Имя" HorizontalAlignment="Left" Margin="400,129,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="331" Height="39" />
+        <TextBox x:Name="Почта" HorizontalAlignment="Left" Margin="400,210,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="332" Height="39" />
         <Label Content="Пароль" HorizontalAlignment="Left" Margin="400,249,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.537,2.151" FontSize="20"/>
-        <TextBox x:Name="Пароль" HorizontalAlignment="Left" Margin="400,291,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="332" Height="39" LostFocus="PasswordValidation"/>
+        <TextBox x:Name="Пароль" HorizontalAlignment="Left" Margin="400,291,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="332" Height="39" />
         <Label Content="Повторите пароль" HorizontalAlignment="Left" Margin="400,335,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.537,2.151" FontSize="20"/>
         <TextBox x:Name="Пароль2" HorizontalAlignment="Left" Margin="400,372,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="332" Height="39"/>
         <Image HorizontalAlignment="Left" Height="166" Margin="65,32,0,0" VerticalAlignment="Top" Width="195" RenderTransformOrigin="0.398,0.444" Source= "C:\Users\User\Desktop\ШероноваОЛеся\images\ало.png" />
