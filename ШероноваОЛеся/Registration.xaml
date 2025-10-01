@@ -1,0 +1,47 @@
+﻿<Window x:Class="ШероноваОЛеся.Registration"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ШероноваОЛеся"
+        mc:Ignorable="d"
+        Title="Registration" Height="600" Width="800">
+    <Grid>
+        <Button Content ="Зарегестрироваться" HorizontalAlignment="Left" Margin="398,438,0,0" VerticalAlignment="Top" Width="336" Height="50" Background="#de4949" FontSize="20" Click="Button_Click">
+
+            <Button.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="15 15 5 5 "/>
+                </Style>
+            </Button.Resources>
+        </Button>
+        <Button Content ="Назад" HorizontalAlignment="Left" Margin="398,493,0,0" VerticalAlignment="Top" Width="336" Height="50" Background="#de4949" Click="Button_Click" FontSize="20">
+
+            <Button.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value=" 5 5 15 15"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+        <Label Content="Welcome back" HorizontalAlignment="Left" Margin="395,22,0,0" VerticalAlignment="Top" Width="347" FontSize="36" RenderTransformOrigin="0.5,0.5">
+            <Label.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform AngleY="0.26"/>
+                    <RotateTransform/>
+                    <TranslateTransform Y="0.595"/>
+                </TransformGroup>
+            </Label.RenderTransform>
+        </Label>
+        <Label Content="Имя пользователя" HorizontalAlignment="Left" Margin="400,92,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.537,2.151" FontSize="20"/>
+        <Label Content="Ваша почта" HorizontalAlignment="Left" Margin="400,168,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.537,2.151" FontSize="20"/>
+        <TextBox x:Name="Имя" HorizontalAlignment="Left" Margin="400,129,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="331" Height="39"/>
+        <TextBox x:Name="Почта" HorizontalAlignment="Left" Margin="400,210,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="332" Height="39"/>
+        <Label Content="Пароль" HorizontalAlignment="Left" Margin="400,249,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.537,2.151" FontSize="20"/>
+        <TextBox x:Name="Пароль" HorizontalAlignment="Left" Margin="400,291,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="332" Height="39"/>
+        <Label Content="Повторите пароль" HorizontalAlignment="Left" Margin="400,335,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.537,2.151" FontSize="20"/>
+        <TextBox x:Name="Пароль2" HorizontalAlignment="Left" Margin="400,372,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="332" Height="39"/>
+        <Image HorizontalAlignment="Left" Height="166" Margin="65,32,0,0" VerticalAlignment="Top" Width="195" RenderTransformOrigin="0.398,0.444" Source= "C:\Users\User\Desktop\РепозиторийШеронова\ало.png" />
+
+    </Grid>
+</Window>
