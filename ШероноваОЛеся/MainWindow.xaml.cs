@@ -24,5 +24,19 @@ namespace ШероноваОЛеся
         {
             InitializeComponent();
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            // Ваш код для обработки события TextChanged
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
