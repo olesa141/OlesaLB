@@ -68,9 +68,14 @@ namespace ШероноваОЛеся
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            // Обработчик нажатия кнопки "Назад" (если нужно)
-            this.Close(); //Просто закрываем окно регистрации.
+        { 
+            // Создаем и показываем окно Main_empty
+            MainWindow mainEmptyWindow = new MainWindow();
+            mainEmptyWindow.Show();
+
+            // Опционально: закрыть текущее окно (Registration)
+            this.Close();
+            
         }
     }
 }

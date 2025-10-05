@@ -27,7 +27,28 @@ namespace ШероноваОЛеся
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+            string email = Поччта.Text; // Замените txtEmail на имя вашего TextBox для email
+            string password = Ппароль.Text; // Замените txtPassword на имя вашего PasswordBox
 
+            // Здесь должна быть логика проверки email и пароля
+            // Например, сравнение с фиксированными значениями:
+            if (email == "olesa@gmail.com" && password == "123")
+            {
+                // Учетные данные верны
+                // Создаем экземпляр следующего окна (замените NextWindow на имя вашего класса для следующей формы)
+                Main_empty mainEmptyWindow = new Main_empty();
+
+                // Отображаем следующее окно
+                mainEmptyWindow.Show();
+
+                // Закрываем текущее окно (опционально)
+                this.Close();
+            }
+            else
+            {
+                // Неверные учетные данные
+                MessageBox.Show("Неверный email или пароль", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
         private void btnRegistration_Click(object sender, RoutedEventArgs e)
         {
