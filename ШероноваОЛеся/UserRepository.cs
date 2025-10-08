@@ -8,5 +8,6 @@ namespace ШероноваОЛеся
 {
     internal class UserRepository
     {
+
     }
 }
