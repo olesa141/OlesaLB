@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace ШероноваОЛеся
 {
@@ -20,19 +21,23 @@ namespace ШероноваОЛеся
     /// </summary>
     public partial class MainWindow : Window
     {
+        UserRepository UR = new UserRepository();
+        Validation validate = new Validation();
+        
         public MainWindow()
         {
             InitializeComponent();
+            UR.UserRegistration("olesa", "123456", "olesa@gmail.com");
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            string email = Поччта.Text; // Замените txtEmail на имя вашего TextBox для email
-            string password = Ппароль.Text; // Замените txtPassword на имя вашего PasswordBox
+            string email = Поччта.Text.Trim().ToLower(); // Замените txtEmail на имя вашего TextBox для email
+            string password = Ппароль.Text.Trim(); // Замените txtPassword на имя вашего PasswordBox
 
             // Здесь должна быть логика проверки email и пароля
             // Например, сравнение с фиксированными значениями:
-            if (email == "olesa@gmail.com" && password == "123")
+            if (email == "olesa@gmail.com" && password == "123456")
             {
                 // Учетные данные верны
                 // Создаем экземпляр следующего окна (замените NextWindow на имя вашего класса для следующей формы)
@@ -50,30 +55,55 @@ namespace ШероноваОЛеся
                 MessageBox.Show("Неверный email или пароль", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
-        private void btnRegistration_Click(object sender, RoutedEventArgs e)
+        private void Registation(object sender, RoutedEventArgs e)
         {
-           
+            Registration registration = new Registration();
+            registration.Show();
+            this.Close();
         }
-        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+
+        private void TBEmail_GotFocus(object sender, RoutedEventArgs e)
         {
-            // Ваш код для обработки события TextChanged
+            if (Поччта.Text == "Почта")
+            {
+                Поччта.Text = string.Empty;
+            }
+        }
+
+        private void TBEmail_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if (string.IsNullOrEmpty(Поччта.Text))
+            {
+                Поччта.Text = "Почта";
+            }
+        }
+
+        private void TBPassword_GotFocus(object sender, RoutedEventArgs e)
+        {
+            if (Ппароль.Text == "Пароль")
+            {
+                Ппароль.Text = string.Empty;
+            }
+        }
+
+        private void TBPassword_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if (string.IsNullOrEmpty(Ппароль.Text))
+            {
+                Ппароль.Text = "Пароль";
+            }
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            // Создаем экземпляр окна регистрации
-            Registration registrationWindow = new Registration();
-
-            // Показываем окно регистрации
-            registrationWindow.Show();
-
-            // Опционально: закрыть текущее окно (MainWindow) после открытия окна регистрации
+            Registration registration = new Registration();
+            registration.Show();
             this.Close();
         }
 
-        public static implicit operator MainWindow(Registration v)
+        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
-            throw new NotImplementedException();
+
         }
     }
 }
