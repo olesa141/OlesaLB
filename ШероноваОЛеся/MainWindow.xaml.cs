@@ -35,24 +35,28 @@ namespace ШероноваОЛеся
             string email = Поччта.Text.Trim().ToLower(); // Замените txtEmail на имя вашего TextBox для email
             string password = Ппароль.Text.Trim(); // Замените txtPassword на имя вашего PasswordBox
 
-            // Здесь должна быть логика проверки email и пароля
-            // Например, сравнение с фиксированными значениями:
-            if (email == "olesa@gmail.com" && password == "123456")
+            if (!Validation.IsValidEmail(email))
             {
-                // Учетные данные верны
-                // Создаем экземпляр следующего окна (замените NextWindow на имя вашего класса для следующей формы)
-                Main_empty mainEmptyWindow = new Main_empty();
+                MessageBox.Show("Некорректный email.", "Ошибка");
+                return;
+            }
 
-                // Отображаем следующее окно
-                mainEmptyWindow.Show();
-
-                // Закрываем текущее окно (опционально)
+            if (!Validation.IsValidPassword(password))
+            {
+                MessageBox.Show("Пароль должен содержать минимум 6 символов.", "Ошибка");
+                return;
+            }
+            try
+            {
+                var user = UR.UserAuthenticate(email, password);
+                Main_empty main_Empty = new Main_empty();
+                main_Empty.Show();
                 this.Close();
             }
-            else
+            catch (Exception ex)
             {
-                // Неверные учетные данные
-                MessageBox.Show("Неверный email или пароль", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show(ex.Message, "Ошибка");
+                return;
             }
         }
         private void Registation(object sender, RoutedEventArgs e)
