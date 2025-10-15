@@ -104,10 +104,52 @@ namespace ШероноваОЛеся
             registration.Show();
             this.Close();
         }
+        private void TextBox_LostFocus(object sender, RoutedEventArgs e)
+        {
+            TextBox tb = (TextBox)sender;
+            if (string.IsNullOrEmpty(tb.Text))
+            {
+                tb.Text = "Введите почту"; 
+                tb.Foreground = Brushes.Gray; 
+            }
+        }
+        private void TextBox_GotFocus(object sender, RoutedEventArgs e)
+        {
+            TextBox tb = (TextBox)sender;
+            if (tb.Text == "Введите почту") 
+            {
+                tb.Text = "";
+                tb.Foreground = Brushes.Black; 
+            }
+        }
 
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
+          
+        }
 
+        private void Ппароль_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void PasswordBox_LostFocus(object sender, RoutedEventArgs e)
+        {
+            TextBox tb = (TextBox)sender;
+            if (string.IsNullOrEmpty(tb.Text))
+            {
+                tb.Text = "Введите пароль";
+                tb.Foreground = Brushes.Gray;
+            }
+        }
+        private void PasswordBox_GotFocus(object sender, RoutedEventArgs e)
+        {
+            TextBox tb = (TextBox)sender;
+            if (tb.Text == "Введите пароль")
+            {
+                tb.Text = "";
+                tb.Foreground = Brushes.Black;
+            }
         }
     }
 }

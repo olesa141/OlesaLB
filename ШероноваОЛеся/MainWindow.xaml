@@ -35,10 +35,10 @@
         </Label>
         <Label Content="Почта" HorizontalAlignment="Left" Margin="336,127,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.537,2.151" FontSize="20" Height="44" Width="78"/>
         <Label Content="Пароль" HorizontalAlignment="Left" Margin="342,236,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.537,2.151" FontSize="20" Height="44" Width="93"/>
-        <TextBox x:Name="Поччта" HorizontalAlignment="Left" Margin="342,177,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="394" Height="47" TextChanged="TextBox_TextChanged" BorderThickness="0,0,0,1"/>
+        <TextBox x:Name="Поччта" HorizontalAlignment="Left" Margin="342,177,0,0" VerticalAlignment="Top" Width="394" Height="47" VerticalContentAlignment="Bottom" TextChanged="TextBox_TextChanged" GotFocus="TextBox_GotFocus" LostFocus="TextBox_LostFocus" BorderThickness="0,0,0,1" TextWrapping="Wrap" FontSize="22" Text="Введите почту" BorderBrush="#FFB5B5B5" Foreground="#FF797979"/>
         <Image HorizontalAlignment="Left" Height="166" Margin="65,30,0,0" VerticalAlignment="Top" Width="195" RenderTransformOrigin="0.398,0.444" Source="/ало.png" />
         <Label Content="Востановить пароль" HorizontalAlignment="Left" Margin="591,325,0,0" VerticalAlignment="Top" Height="31" Width="144"/>
-        <TextBox x:Name="Ппароль" HorizontalAlignment="Left" Margin="342,283,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="395" Height="47" BorderThickness="0,0,0,1"/>
+        <TextBox x:Name="Ппароль"  GotFocus="PasswordBox_GotFocus" LostFocus="PasswordBox_LostFocus" VerticalContentAlignment="Bottom" HorizontalAlignment="Left" Margin="342,283,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="395" Height="47" BorderThickness="0,0,0,1" Text="Введите пароль" Foreground="#FF6F6F6F" FontSize="24" TextChanged="Ппароль_TextChanged"/>
 
     </Grid>
 </Window>

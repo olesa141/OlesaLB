@@ -167,7 +167,104 @@ namespace ШероноваОЛеся
                 Пароль.Text = "Повторите пароль";
             }
         }
+
+        private void Имя_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void ИмяЛост(object sender, RoutedEventArgs e)
+        {
+            TextBox tb = (TextBox)sender;
+            if (string.IsNullOrEmpty(tb.Text))
+            {
+                tb.Text = "Введите имя пользователя";
+                tb.Foreground = Brushes.Gray;
+            }
+        }
+        private void ИмяГот(object sender, RoutedEventArgs e)
+        {
+            TextBox tb = (TextBox)sender;
+            if (tb.Text == "Введите имя пользователя")
+            {
+                tb.Text = "";
+                tb.Foreground = Brushes.Black;
+            }
+        }
+
+        private void Почта_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void ПочтаЛост(object sender, RoutedEventArgs e)
+        {
+            TextBox tb = (TextBox)sender;
+            if (string.IsNullOrEmpty(tb.Text))
+            {
+                tb.Text = "Введите почту";
+                tb.Foreground = Brushes.Gray;
+            }
+        }
+        private void ПочтаГот(object sender, RoutedEventArgs e)
+        {
+            TextBox tb = (TextBox)sender;
+            if (tb.Text == "Введите почту")
+            {
+                tb.Text = "";
+                tb.Foreground = Brushes.Black;
+            }
+        }
+
+        private void Пароль_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void ПарольЛост(object sender, RoutedEventArgs e)
+        {
+            TextBox tb = (TextBox)sender;
+            if (string.IsNullOrEmpty(tb.Text))
+            {
+                tb.Text = "Введите пароль";
+                tb.Foreground = Brushes.Gray;
+            }
+        }
+        private void ПарольГот(object sender, RoutedEventArgs e)
+        {
+            TextBox tb = (TextBox)sender;
+            if (tb.Text == "Введите пароль")
+            {
+                tb.Text = "";
+                tb.Foreground = Brushes.Black;
+            }
+        }
+
+        private void Пароль2_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+        private void Пароль2Лост(object sender, RoutedEventArgs e)
+        {
+            TextBox tb = (TextBox)sender;
+            if (string.IsNullOrEmpty(tb.Text))
+            {
+                tb.Text = "Повторите пароль";
+                tb.Foreground = Brushes.Gray;
+            }
+        }
+        private void Пароль2Гот(object sender, RoutedEventArgs e)
+        {
+            TextBox tb = (TextBox)sender;
+            if (tb.Text == "Повторите пароль")
+            {
+                tb.Text = "";
+                tb.Foreground = Brushes.Black;
+            }
+        }
     }
+
 }
+
 
     
