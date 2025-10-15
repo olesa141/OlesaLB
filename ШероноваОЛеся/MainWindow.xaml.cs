@@ -27,7 +27,7 @@ namespace ШероноваОЛеся
         public MainWindow()
         {
             InitializeComponent();
-            UR.UserRegistration("olesa", "123456", "olesa@gmail.com");
+           
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

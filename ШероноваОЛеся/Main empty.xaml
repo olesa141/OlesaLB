@@ -17,7 +17,7 @@
                 </Style>
             </Button.Resources>
         </Button>
-        <Image HorizontalAlignment="Left" Height="94" Margin="25,24,0,0" VerticalAlignment="Top" Width="108" RenderTransformOrigin="0.398,0.444" Source="C:\Users\User\Desktop\ff\ШероноваОЛеся\фото.jpg" MouseLeftButtonDown="CreateTaskButton_Clicke"  Stretch="Fill"/>
+        <Image HorizontalAlignment="Left" Height="94" Margin="25,24,0,0" VerticalAlignment="Top" Width="108" RenderTransformOrigin="0.398,0.444" Source="C:\Users\Student\Desktop\OlesaLB1\ШероноваОЛеся\фото.jpg" MouseLeftButtonDown="CreateTaskButton_Clicke"  Stretch="Fill"/>
 
         <Popup x:Name="popup" Placement="Left" AllowsTransparency="True">
             <Border Background="White" BorderBrush="LightGray" BorderThickness="1" Padding="20">

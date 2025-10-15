@@ -120,5 +120,14 @@
   <ItemGroup>
     <Folder Include="Repository\" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="ало.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="фото.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="фото2.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -20,13 +20,6 @@ namespace ШероноваОЛеся
                 return false;
             }
 
-            // Теперь этот код не нужен, так как проверка на email выполняется в Registration.cs
-            // if (registeredUser.Exists(l => l.Email == email))
-            // {
-            //     MessageBox.Show("Пользователь с такой почтой уже существует");
-            //     return false;
-            // }
-
             var newUser = new UserModel(login, password, email);
             registeredUser.Add(newUser);
             return true;
