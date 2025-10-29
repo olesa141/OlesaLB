@@ -57,7 +57,9 @@ namespace ШероноваОЛеся
 
         private void CreateTaskButton_Click(object sender, RoutedEventArgs e)
         {
-
+            Main registration = new Main();
+            registration.Show();
+            this.Close();
         }
     }
 }

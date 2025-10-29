@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ШероноваОЛеся"
         mc:Ignorable="d"
-        Title="Main" Height="450" Width="800">
+        Title="Main" Height="600" Width="800">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
@@ -36,9 +36,9 @@
                 </StackPanel>
                 <TextBlock Text="Задачи" FontWeight="Bold" 
                               Foreground="#007ACC"
-                              FontSize="14" Grid.ColumnSpan="2" Margin="44,21,622,21"/>
+                              FontSize="14" Grid.ColumnSpan="2" Margin="38,21,628,21"/>
                 <TextBlock Text="История" Foreground="#666" 
-                              FontSize="14" Grid.Column="1" Margin="118,22,488,19"/>
+                              FontSize="14" Grid.Column="1" Margin="155,21,451,20"/>
             </Grid>
         </Border>
 
@@ -221,17 +221,15 @@
 
                     <!-- Кнопки действий -->
                     <StackPanel Grid.Row="2" Orientation="Horizontal" 
-                               HorizontalAlignment="Right" Margin="0,20,0,0">
-                        <Button Content="Готово" Background="#de4949" 
+                               HorizontalAlignment="Right" Margin="0,20,0,0"/>
+                    <Button Content="Готово" Background="#de4949" 
                                Foreground="White" Padding="25,8"
-                               FontWeight="SemiBold" Margin="0,0,10,0"
-                               BorderThickness="0"/>
-
-                        <Button Content="Удалить" Background="White" 
-                               Foreground="#666" Padding="25,8"
+                               FontWeight="SemiBold" Margin="10,339,10,41"
+                               BorderThickness="0" Grid.Row="1"/>
+                    <Button Content="Удалить" Background="White" 
+                               Foreground="#FFB52121" Padding="25,8"
                                FontWeight="SemiBold" 
-                               BorderBrush="#E0E0E0" BorderThickness="1"/>
-                    </StackPanel>
+                               BorderBrush="#FFC71F1F" BorderThickness="1" Margin="10,371,10,5" Grid.Row="1"/>
                 </Grid>
             </Border>
         </Grid>
