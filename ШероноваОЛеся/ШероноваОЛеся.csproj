@@ -65,8 +65,13 @@
     <Compile Include="Registration.xaml.cs">
       <DependentUpon>Registration.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Taskelement.cs" />
+    <Compile Include="TaskManager.cs" />
     <Compile Include="UserRepository.cs" />
     <Compile Include="Validation.cs" />
+    <Compile Include="Добавление задачи.xaml.cs">
+      <DependentUpon>Добавление задачи.xaml</DependentUpon>
+    </Compile>
     <Page Include="Main empty.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -88,6 +93,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Registration.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Добавление задачи.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

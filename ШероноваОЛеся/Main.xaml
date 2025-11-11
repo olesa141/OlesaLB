@@ -7,231 +7,72 @@
         mc:Ignorable="d"
         Title="Main" Height="600" Width="800">
     <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="*"/>
-        </Grid.RowDefinitions>
-
-        <!-- Верхняя панель с навигацией -->
-        <Border Grid.Row="0" Background="White" BorderBrush="#E0E0E0" BorderThickness="0,0,0,1">
-            <Grid Height="60">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="Auto"/>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="Auto"/>
-                </Grid.ColumnDefinitions>
-
-                <!-- Заголовок Main -->
-
-                <!-- Навигация Задачи/История -->
-                <StackPanel Grid.Column="1" Orientation="Horizontal" 
-                           HorizontalAlignment="Center" VerticalAlignment="Center"/>
-
-                <!-- Профиль пользователя -->
-                <StackPanel Grid.Column="2" Orientation="Horizontal" 
-                           VerticalAlignment="Center" Margin="0,0,20,0">
-                    <Ellipse Width="32" Height="32" Fill="#007ACC"/>
-                    <TextBlock Text="Alex" Margin="10,0,0,0"
-                              VerticalAlignment="Center" FontWeight="SemiBold"/>
+        <Image x:Name="Photo" HorizontalAlignment="Left" Height="90" Margin="10,10,0,0" VerticalAlignment="Top" Width="116"  Source="/фото.jpg">
+            <Image.ContextMenu>
+                <ContextMenu x:Name="Menu">
+                    <MenuItem Header="Выход" Click="Выход_Click"  />
+                    <MenuItem Header="Изменить фото профиля" Click="СменаФото_Click" />
+                </ContextMenu>
+            </Image.ContextMenu>
+        </Image>
+        <Button Content="Дом" HorizontalAlignment="Left" Margin="136,52,0,0" VerticalAlignment="Top" BorderBrush="White" Background="{x:Null}" Foreground="Black" FontSize="18" Click="DomButton_Click"/>
+        <Button Content="Работа" HorizontalAlignment="Left" Margin="200,52,0,0" VerticalAlignment="Top" BorderBrush="White" Background="{x:Null}" Foreground="Black" FontSize="18" Click="RabotaButton_Click"/>
+        <Button Content="Учеба" HorizontalAlignment="Left" Margin="285,52,0,0" VerticalAlignment="Top" BorderBrush="White" Background="{x:Null}" Foreground="Black" FontSize="18"  Click="UchebaButton_Click"/>
+        <Button Content="Отдых" HorizontalAlignment="Left" Margin="359,52,0,0" VerticalAlignment="Top" BorderBrush="White" Background="{x:Null}" Foreground="Black" FontSize="18" Click="OtdihButton_Click"/>
+        <Button Content="Задачи" HorizontalAlignment="Left" Margin="18,166,0,0" VerticalAlignment="Top" BorderBrush="White" Background="{x:Null}" Foreground="Black" FontSize="18"/>
+        <Button Content="История" HorizontalAlignment="Left" Margin="18,212,0,0" VerticalAlignment="Top" BorderBrush="White" Background="{x:Null}" Foreground="Black" FontSize="18"/>
+        <Button Content="+" HorizontalAlignment="Left" Margin="10,458,0,0" VerticalAlignment="Top" Background="#FFEA5656" FontSize="36" Click="Button_Click" Foreground="White" Height="93" Width="106" BorderBrush="White">
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="40 40 40 40"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+        <ListBox x:Name="TasksListBox" Margin="136,105,329,33" SelectionChanged="TasksListBox_SelectionChanged">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Margin="5">
+                        <CheckBox Content="{Binding Title}" 
+                      IsChecked="{Binding IsCompleted}" 
+                      Margin="5" FontSize="14"/>
+                        <TextBlock Text="{Binding DisplayTime}" 
+                          Margin="25,1,0,0" 
+                          FontSize="11" 
+                          Foreground="#666666"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <Border BorderBrush="Black" BorderThickness="1" Margin="501,0,28,110" Height="369" VerticalAlignment="Bottom">
+            <StackPanel Height="368" VerticalAlignment="Center">
+                <Label Content="Заголовок" HorizontalAlignment="Center" FontSize="24"/>
+                <StackPanel Orientation="Horizontal" Height="26" Width="230">
+                    <TextBlock x:Name="DetailTime"/>
                 </StackPanel>
-                <TextBlock Text="Задачи" FontWeight="Bold" 
-                              Foreground="#007ACC"
-                              FontSize="14" Grid.ColumnSpan="2" Margin="38,21,628,21"/>
-                <TextBlock Text="История" Foreground="#666" 
-                              FontSize="14" Grid.Column="1" Margin="155,21,451,20"/>
-            </Grid>
-        </Border>
+                <StackPanel Orientation="Horizontal" Height="39" Width="230">
+                    <TextBlock x:Name="DetailDate"/>
+                </StackPanel>
+                <Border>
 
-        <!-- Основной контент -->
-        <Grid Grid.Row="1">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="300"/>
-            </Grid.ColumnDefinitions>
-
-            <!-- Левая часть - категории и список задач -->
-            <Grid Grid.Column="0" Background="#F5F5F5">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="Auto"/>
-                </Grid.RowDefinitions>
-
-                <!-- Категории -->
-                <Border Grid.Row="0" Background="White" Height="50">
-                    <StackPanel Orientation="Horizontal" Margin="20,0">
-                        <TextBlock Text="Дом" Margin="0,0,20,0" FontWeight="Bold" 
-                                  Foreground="#007ACC" VerticalAlignment="Center"/>
-                        <TextBlock Text="Работа" Margin="0,0,20,0" Foreground="#666"
-                                  VerticalAlignment="Center"/>
-                        <TextBlock Text="Учеба" Margin="0,0,20,0" Foreground="#666"
-                                  VerticalAlignment="Center"/>
-                        <TextBlock Text="Отдых" Foreground="#666"
-                                  VerticalAlignment="Center"/>
-                    </StackPanel>
                 </Border>
+                <TextBlock x:Name="DetailDescription" TextWrapping="Wrap" Height="151" Width="230"/>
+                <Button x:Name="CompleteButton" Content="Готово" Click="CompleteButton_Click" Height="40" Margin="0,0,0,5" Width="224" BorderBrush="#FFEA5656" Background="#FFEA5656" Foreground="White" FontSize="17" >
+                    <Button.Resources>
+                        <Style TargetType="Border">
+                            <Setter Property="CornerRadius" Value="15 15 5 5"/>
+                        </Style>
+                    </Button.Resources>
+                </Button>
+                <Button x:Name="DeleteButton" Content="Удалить" Click="DeleteButton_Click" Height="40" Margin="0,5,0,0" Width="224" Background="#FFEA5656" BorderBrush="#FFEA5656" Foreground="White" FontSize="17">
+                    <Button.Resources>
+                        <Style TargetType="Border">
+                            <Setter Property="CornerRadius" Value="5 5 15 15"/>
+                        </Style>
+                    </Button.Resources>
+                </Button>
+            </StackPanel>
+        </Border>
+        <Label Content="{Binding UserName}" HorizontalAlignment="Left" Margin="10,100,0,0" VerticalAlignment="Top" FontSize="16" Width="106" Height="31"/>
 
-                <!-- Список задач -->
-                <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto" Margin="20">
-                    <StackPanel>
-                        <!-- Задача 1 -->
-                        <Border Background="White" Margin="0,0,0,10">
-                            <Grid Height="60">
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="Auto"/>
-                                    <ColumnDefinition Width="*"/>
-                                </Grid.ColumnDefinitions>
-                                <CheckBox Grid.Column="0" VerticalAlignment="Center" 
-                                         Margin="15,0,15,0"/>
-                                <StackPanel Grid.Column="1" VerticalAlignment="Center">
-                                    <TextBlock Text="Go fishing with Stephen" 
-                                              FontWeight="SemiBold" FontSize="14"/>
-                                    <TextBlock Text="9:00am" Foreground="#666" 
-                                              FontSize="12" Margin="0,2,0,0"/>
-                                </StackPanel>
-                            </Grid>
-                        </Border>
-
-                        <!-- Задача 2 -->
-                        <Border Background="White" Margin="0,0,0,10">
-                            <Grid Height="60">
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="Auto"/>
-                                    <ColumnDefinition Width="*"/>
-                                </Grid.ColumnDefinitions>
-                                <CheckBox Grid.Column="0" VerticalAlignment="Center" 
-                                         Margin="15,0,15,0"/>
-                                <StackPanel Grid.Column="1" VerticalAlignment="Center">
-                                    <TextBlock Text="Go fishing with Stephen" 
-                                              FontWeight="SemiBold" FontSize="14"/>
-                                    <TextBlock Text="9:00am" Foreground="#666" 
-                                              FontSize="12" Margin="0,2,0,0"/>
-                                </StackPanel>
-                            </Grid>
-                        </Border>
-
-                        <!-- Задача 3 -->
-                        <Border Background="White" Margin="0,0,0,10">
-                            <Grid Height="60">
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="Auto"/>
-                                    <ColumnDefinition Width="*"/>
-                                </Grid.ColumnDefinitions>
-                                <CheckBox Grid.Column="0" VerticalAlignment="Center" 
-                                         Margin="15,0,15,0"/>
-                                <StackPanel Grid.Column="1" VerticalAlignment="Center">
-                                    <TextBlock Text="Read the book Zlatan" 
-                                              FontWeight="SemiBold" FontSize="14"/>
-                                    <TextBlock Text="9:00am" Foreground="#666" 
-                                              FontSize="12" Margin="0,2,0,0"/>
-                                </StackPanel>
-                            </Grid>
-                        </Border>
-
-                        <!-- Задача 4 -->
-                        <Border Background="White" Margin="0,0,0,10">
-                            <Grid Height="60">
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="Auto"/>
-                                    <ColumnDefinition Width="*"/>
-                                </Grid.ColumnDefinitions>
-                                <CheckBox Grid.Column="0" VerticalAlignment="Center" 
-                                         Margin="15,0,15,0"/>
-                                <StackPanel Grid.Column="1" VerticalAlignment="Center">
-                                    <TextBlock Text="Meet according with design team..." 
-                                              FontWeight="SemiBold" FontSize="14"/>
-                                    <TextBlock Text="9:00am" Foreground="#666" 
-                                              FontSize="12" Margin="0,2,0,0"/>
-                                </StackPanel>
-                            </Grid>
-                        </Border>
-
-                        <!-- Задача 5 -->
-                        <Border Background="White" Margin="0,0,0,10">
-                            <Grid Height="60">
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="Auto"/>
-                                    <ColumnDefinition Width="*"/>
-                                </Grid.ColumnDefinitions>
-                                <CheckBox Grid.Column="0" VerticalAlignment="Center" 
-                                         Margin="15,0,15,0"/>
-                                <StackPanel Grid.Column="1" VerticalAlignment="Center">
-                                    <TextBlock Text="Meet according with design team..." 
-                                              FontWeight="SemiBold" FontSize="14"/>
-                                    <TextBlock Text="9:00am" Foreground="#666" 
-                                              FontSize="12" Margin="0,2,0,0"/>
-                                </StackPanel>
-                            </Grid>
-                        </Border>
-
-                        <!-- Задача 6 -->
-                        <Border Background="White">
-                            <Grid Height="60">
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="Auto"/>
-                                    <ColumnDefinition Width="*"/>
-                                </Grid.ColumnDefinitions>
-                                <CheckBox Grid.Column="0" VerticalAlignment="Center" 
-                                         Margin="15,0,15,0"/>
-                                <StackPanel Grid.Column="1" VerticalAlignment="Center">
-                                    <TextBlock Text="Meet according with design team..." 
-                                              FontWeight="SemiBold" FontSize="14"/>
-                                    <TextBlock Text="9:00am" Foreground="#666" 
-                                              FontSize="12" Margin="0,2,0,0"/>
-                                </StackPanel>
-                            </Grid>
-                        </Border>
-                    </StackPanel>
-                </ScrollViewer>
-
-                <!-- Кнопка добавления задачи -->
-                <Button Grid.Row="2" Content="+" 
-                       Background="#de4949" Foreground="White" 
-                       FontSize="20" FontWeight="Bold"
-                       Height="40" Margin="20,10"
-                       BorderThickness="0"/>
-            </Grid>
-
-            <!-- Правая часть - детали задачи -->
-            <Border Grid.Column="1" Background="White" BorderBrush="#E0E0E0" BorderThickness="1,0,0,0">
-                <Grid Margin="25">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="Auto"/>
-                        <RowDefinition Height="*"/>
-                        <RowDefinition Height="Auto"/>
-                    </Grid.RowDefinitions>
-
-                    <!-- Заголовок деталей -->
-                    <TextBlock Grid.Row="0" Text="Зарядков" 
-                              FontSize="16" FontWeight="Bold"
-                              Margin="0,0,0,20"/>
-
-                    <!-- Детали задачи -->
-                    <StackPanel Grid.Row="1">
-                        <TextBlock Text="18:00" 
-                                  Foreground="#666" FontSize="12" Margin="0,0,0,5"/>
-                        <TextBlock Text="от Января 2022" 
-                                  Foreground="#666" FontSize="12" Margin="0,0,0,20"/>
-
-                        <TextBlock Text="Lorem ipsum dolor sit amet," 
-                                  FontSize="14" Margin="0,0,0,5"/>
-                        <TextBlock Text="consectetur adipiscing." 
-                                  FontSize="14"/>
-                    </StackPanel>
-
-                    <!-- Кнопки действий -->
-                    <StackPanel Grid.Row="2" Orientation="Horizontal" 
-                               HorizontalAlignment="Right" Margin="0,20,0,0"/>
-                    <Button Content="Готово" Background="#de4949" 
-                               Foreground="White" Padding="25,8"
-                               FontWeight="SemiBold" Margin="10,339,10,41"
-                               BorderThickness="0" Grid.Row="1"/>
-                    <Button Content="Удалить" Background="White" 
-                               Foreground="#FFB52121" Padding="25,8"
-                               FontWeight="SemiBold" 
-                               BorderBrush="#FFC71F1F" BorderThickness="1" Margin="10,371,10,5" Grid.Row="1"/>
-                </Grid>
-            </Border>
-        </Grid>
     </Grid>
 </Window>
