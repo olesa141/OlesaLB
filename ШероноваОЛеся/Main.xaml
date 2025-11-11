@@ -9,9 +9,9 @@
     <Grid>
         <Image x:Name="Photo" HorizontalAlignment="Left" Height="90" Margin="10,10,0,0" VerticalAlignment="Top" Width="116"  Source="/фото.jpg">
             <Image.ContextMenu>
-                <ContextMenu x:Name="Menu">
-                    <MenuItem Header="Выход" Click="Выход_Click"  />
-                    <MenuItem Header="Изменить фото профиля" Click="СменаФото_Click" />
+                <ContextMenu x:Name="Меню">
+                    <MenuItem Header="Выход" Click="ВыходClick"  />
+                    <MenuItem Header="Изменить фото профиля" Click="СменаФотоClick" />
                 </ContextMenu>
             </Image.ContextMenu>
         </Image>

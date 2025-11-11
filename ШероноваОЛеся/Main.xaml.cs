@@ -146,14 +146,14 @@ namespace ШероноваОЛеся
             DetailDate.Text = "";
             DetailDescription.Text = "";
         }
-        private void Выход_Click(object sender, RoutedEventArgs e)
+        private void ВыходClick(object sender, RoutedEventArgs e)
         {
             MainWindow log = new MainWindow();
             log.Show();
             this.Close();
 
         }
-        private void СменаФото_Click(object sender, RoutedEventArgs e)
+        private void СменаФотоClick(object sender, RoutedEventArgs e)
         {
            
 
