@@ -72,6 +72,9 @@
     <Compile Include="Добавление задачи.xaml.cs">
       <DependentUpon>Добавление задачи.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ОкноИстории.xaml.cs">
+      <DependentUpon>ОкноИстории.xaml</DependentUpon>
+    </Compile>
     <Page Include="Main empty.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -97,6 +100,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Добавление задачи.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ОкноИстории.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

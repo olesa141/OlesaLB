@@ -158,5 +158,13 @@ namespace ШероноваОЛеся
            
 
         }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            ОкноИстории history = new ОкноИстории();
+            history.Show();
+            this.Close();
+
+        }
     }
 }
